@@ -1,27 +1,21 @@
-pipeline{
 
-	agent {label 'docker_agent'}
+pipeline {
+  agent { label 'docker_agent' }
 
-	environment {
-		DOCKERHUB_CREDENTIALS=credentials('dockerhub')
-	}
+  stages {
 
-	stages {
-   
             stage('gitclone') {
 
-		        steps {
-				git 'https://github.com/aisakova29/ansible-itmo.git'
-			}
-		}
-
-		stage('Test') {
-
                         steps {
+                                git 'https://github.com/aisakova29/ansible-itmo.git'
+                        }
+                }
+             stage('Docker_build') {
+                        steps {
+                                sh 'ansible all -m ping'
                                 sh 'ansible-playbook playbook1.yml'
                                 sh 'ansible-playbook playbook2.yml'
-            }
-        }
-
+      }
+    }
+  }
 }
-
