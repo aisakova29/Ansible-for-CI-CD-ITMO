@@ -10,7 +10,7 @@ pipeline {
                                 git 'https://github.com/aisakova29/ansible-itmo.git'
                         }
                 }
-             stage('Docker_build') {
+             stage('ansible') {
                         steps {
                                 sh 'ansible all -m ping'
                                 sh 'ansible-playbook playbook1.yml'
