@@ -2,14 +2,9 @@
 pipeline {
   agent { label 'docker_agent' }
 
-<<<<<<< HEAD
   stages {
-
-=======
-	stages {
    
->>>>>>> 1697d896a6064e03286ec7514a746b9ac7ad8fb4
-            stage('gitclone') {
+              stage('gitclone') {
 
                         steps {
                                 git 'https://github.com/aisakova29/ansible-itmo.git'
